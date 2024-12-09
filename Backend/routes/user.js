@@ -9,7 +9,7 @@ const { authenticateToken } = require("./userAuth.js");
 //api localhost:1000/api/v1/sign-up
 router.post("/sign-up", async (req, res) => {
   try{
-    const { username, email, password, address, nid, contact} = req.body;
+    const { username, email, password, nid, contact,address} = req.body;
     //check username length less than 4
     if (username.length < 4) {
       return res.status(400).json({ message : "Username length needs to be more than 3"});
@@ -42,9 +42,9 @@ router.post("/sign-up", async (req, res) => {
       username: username,
       email: email,
       password: hashPass,
-      address: address,
       nid: nid,
-      contact: contact
+      contact: contact,
+      address: address
     });
     await newUser.save();
     return res.status(200).json({ message: "SignUp Sucessfully" });

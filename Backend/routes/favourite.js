@@ -54,5 +54,4 @@ router.get("/get-favourite-services", authenticateToken, async (req, res) => {
   }
 });
 
-
 module.exports = router;

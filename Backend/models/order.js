@@ -12,7 +12,7 @@ const order = new mongoos.Schema(
     status: {
       type: String,
       default: "Request Placed",
-      enum: ["Request placed", "Services is coming", "Resolved", "Canceled"],
+      enum: ["Request Placed", "Services is coming", "Resolved", "Canceled", "Pending", "Rejected"],
     },
   }, { timestamps: true }
 );

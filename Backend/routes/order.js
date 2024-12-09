@@ -10,7 +10,7 @@ router.post("/place-order", authenticateToken, async (req, res) => {
     const { id } = req.headers;
     const { order } = req.body;
     for (const orderData of order) {
-      const newOrder = new Order({ user: id, book: orderData._id });
+      const newOrder = new Order({ user: id, services : orderData._id });
       const orderDataFromDB = await newOrder.save();
       //saving services in user model
       await User.findByIdAndUpdate(id, {
@@ -33,7 +33,7 @@ router.post("/place-order", authenticateToken, async (req, res) => {
   }
 });
 
-//oder history of an usr
+//oder history of an user
 router.get("/get-order-history", authenticateToken, async (req, res) => {
   try {
     const { id } = req.headers;
