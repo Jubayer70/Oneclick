@@ -19,15 +19,15 @@ const user = new mongoose.Schema({
     type: String,
     required: true,
   },
-  nid: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+  // nid: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  // },
   contact: {
     type: Number,
     required: true,
-    // unique: true,
+    unique: true,
   },
   avatar: {
     type: String,

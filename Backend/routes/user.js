@@ -28,21 +28,21 @@ router.post("/sign-up", async (req, res) => {
       return res.status(400).json({ message : "Password length needs to be more than 3"});
     }
 
-    if (nid.length < 3) {
-      return res.status(400).json({ message : "NID Number needs to be more than 3"});
-    }
-    //code for if nid is already registerd or not
-    const existingNID = await User.findOne({ nid: nid });
-    if (existingNID) {
-       return res.status(400).json({ message : "NID already in Use"});
-    }
+    // if (nid.length < 3) {
+    //   return res.status(400).json({ message : "NID Number needs to be more than 3"});
+    // }
+    // //code for if nid is already registerd or not
+    // const existingNID = await User.findOne({ nid: nid });
+    // if (existingNID) {
+    //    return res.status(400).json({ message : "NID already in Use"});
+    // }
 
     const hashPass = await bcrypt.hash(password, 10);
     const newUser = new User({
       username: username,
       email: email,
       password: hashPass,
-      nid: nid,
+      // nid: nid,
       contact: contact,
       address: address
     });
