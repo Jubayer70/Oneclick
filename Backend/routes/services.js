@@ -54,7 +54,7 @@ router.delete("/delete-services", authenticateToken, async (req, res) => {
     const { servicesid } = req.headers;
     await Services.findByIdAndDelete(servicesid);
     return res.status(200).json({
-      messege: "Services Removed Successfully",
+      message: "Services Removed Successfully",
     })
   }
   catch (error) {
